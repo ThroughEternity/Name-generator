@@ -123,6 +123,31 @@ const personGenerator = {
 
     },
 
+    randomDate: function() {
+        function getRandomArbitrary(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+        var date1 = date1 || '01-01-1970'
+        var date2 = date2 || '01-01-2001'
+        var date2 = date2 || new Date().toLocaleDateString();
+        date1 = new Date(date1).getTime()
+        date2 = new Date(date2).getTime()
+        if (date1 > date2) {
+            return new Date(getRandomArbitrary(date2, date1)).toLocaleDateString('ru', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            })
+        } else {
+            return new Date(getRandomArbitrary(date1, date2)).toLocaleDateString('ru', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            })
+
+        }
+    },
+
 
      randomSurname: function() {
 
@@ -135,6 +160,7 @@ const personGenerator = {
         this.person = {};
         // this.person.gender = this.randomGender();
         this.person.firstName = this.randomFirstName();
+        this.person.randomDate = this.randomDate();
         return this.person;
     }
 };
