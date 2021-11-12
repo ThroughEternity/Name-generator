@@ -1,7 +1,7 @@
 
 window.onload = function()
 {
-    const initPerson = personGenerator.getPerson();
+    let initPerson = personGenerator.getPerson();
     let firstName = initPerson.firstName;
     let gender = initPerson.gender;
     let work = initPerson.profession;
@@ -14,6 +14,5 @@ window.onload = function()
     document.getElementById('birthYearOutput').innerText = `Дата рождения ${randomDate}`;
     document.getElementById('middleNameOutput').innerText = `${middleName}`;
     document.getElementById('workOutput').innerText = `Профессия ${work}`;
-
 };
 

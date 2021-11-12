@@ -31,7 +31,7 @@ const personGenerator = {
             "id_5": "Викторов",
             "id_6": "Брониславов",
             "id_7": "Романов",
-            "id_8": "Федоров"
+            "id_8": "Федоров",
             "id_9": "Ярославов",
             "id_10": "Леонидов"
         }
@@ -154,8 +154,17 @@ const personGenerator = {
 
     getPerson: function () {
         this.person = {};
-        // this.person.gender = this.randomGender();
-        this.person.firstName = this.randomJson(this.firstNameMaleJson);
+        this.person.gender = this.randomJson(this.genderJson);
+        if (this.person.gender == 'Мужчина') {
+            this.person.firstName = this.randomJson(this.firstNameMaleJson);
+            this.person.profession = this.randomJson(this.professionMaleJson);
+        } else {
+            this.person.firstName = this.randomJson(this.firstNamefemaleJson);
+            this.person.profession = this.randomJson(this.professionFemaleJson);
+
+        }
+        this.person.middleName = this.randomJson(this.middleName);
+        this.person.surnameName = this.randomJson(this.surnameJson);
         this.person.randomDate = this.randomDate();
         return this.person;
     }
