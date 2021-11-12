@@ -117,9 +117,9 @@ const personGenerator = {
         return obj.list[prop];
     },
 
-    randomFirstName: function() {
+    randomJson: function(objJson) {
 
-        return this.randomValue(this.firstNameMaleJson);
+        return this.randomValue(objJson);
 
     },
 
@@ -149,17 +149,13 @@ const personGenerator = {
     },
 
 
-     randomSurname: function() {
 
-        return this.randomValue(this.surnameJson);
-
-    },
 
 
     getPerson: function () {
         this.person = {};
         // this.person.gender = this.randomGender();
-        this.person.firstName = this.randomFirstName();
+        this.person.firstName = this.randomJson(this.firstNameMaleJson);
         this.person.randomDate = this.randomDate();
         return this.person;
     }
